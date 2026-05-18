@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Spam Detection</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter your message</h1>
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <textarea class="form-control" name="message" rows="6" required placeholder="Type your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Check Spam</button>
+        </form>
+    </div>
+    <footer>
+        © 2024 SMS Spam Detection. All rights reserved.
+    </footer>
+
+    <style>
+        body {
+            background-color: #e0f7fa; /* Soft cyan background */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        h1 {
+            color: #005662; /* Dark teal for heading */
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            animation: fadeInDown 1s ease; /* Animation for the heading */
+        }
+
+        @keyframes fadeInDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            background-color: #ffffff; /* White background for the form container */
+            padding: 30px 40px;
+            border-radius: 15px; /* Rounded container corners */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px; /* Larger space between elements */
+        }
+
+        textarea {
+            resize: none;
+            border: 2px solid #00838f; /* Teal border */
+            border-radius: 10px; /* Rounded corners for textarea */
+            padding: 15px;
+            font-size: 16px;
+            width: 100%;
+            transition: border-color 0.3s ease; /* Smooth border transition */
+        }
+
+        textarea:focus {
+            border-color: #005662; /* Darker border on focus */
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 131, 143, 0.5); /* Shadow effect on focus */
+        }
+
+        .btn-primary {
+            background-color: #00838f; /* Teal color */
+            border-color: #00838f;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2rem; /* Larger font size */
+            border-radius: 10px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover effect */
+            display: inline-block;
+            width: 100%; /* Make the button fill the available space */
+            text-align: center;
+        }
+
+        .btn-primary:hover {
+            background-color: #005662; /* Darker teal on hover */
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .container {
+                padding: 20px;
+            }
+            .btn-primary {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</body>
+</html>

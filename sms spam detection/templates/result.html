@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <!-- Include Bootstrap for better styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .alert-box {
+            max-width: 500px;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .spam-icon {
+            font-size: 50px;
+            color: red;
+        }
+        .not-spam-icon {
+            font-size: 50px;
+            color: green;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Conditionally show alert box based on the prediction result -->
+    <div class="alert-box alert 
+        {% if prediction == 'SPAM' %}
+            alert-danger
+        {% else %}
+            alert-success
+        {% endif %}
+        ">
+        <!-- Display an alert icon depending on spam or not spam -->
+        {% if prediction == 'SPAM' %}
+            <div class="spam-icon">⚠️</div>
+            <h1>This message is SPAM!</h1>
+        {% else %}
+            <div class="not-spam-icon">✅</div>
+            <h1>This message is NOT SPAM!</h1>
+        {% endif %}
+        
+        <p>The message is classified as: <strong>{{ prediction }}</strong></p>
+        <a href="/" class="btn btn-primary mt-3">Go back</a>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
